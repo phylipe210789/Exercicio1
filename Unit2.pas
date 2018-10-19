@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Mask,
-  Vcl.DBCtrls, Vcl.Buttons;
+  Vcl.DBCtrls, Vcl.Buttons, Data.Win.ADODB, Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids;
 
 type
   TFormCadastraSocios = class(TForm)
@@ -13,28 +13,17 @@ type
     DBEdit1: TDBEdit;
     Label2: TLabel;
     DBEdit2: TDBEdit;
-    Label3: TLabel;
-    DBEdit3: TDBEdit;
-    Label4: TLabel;
-    DBEdit4: TDBEdit;
-    Label5: TLabel;
-    DBEdit5: TDBEdit;
-    Label6: TLabel;
-    DBEdit6: TDBEdit;
-    Label7: TLabel;
-    DBEdit7: TDBEdit;
-    Label8: TLabel;
-    DBEdit8: TDBEdit;
-    Label9: TLabel;
-    DBEdit9: TDBEdit;
-    Label10: TLabel;
-    DBEdit10: TDBEdit;
-    Label11: TLabel;
-    DBEdit11: TDBEdit;
-    BotaoCadastrar: TBitBtn;
-    BotaoFechar: TBitBtn;
-    TabelaCadastroSocios: TDataSource;
+    ds: TDataSource;
+    qry: TADOQuery;
+    qryDEP_ID: TIntegerField;
+    qryDEP_DESCRICAO: TStringField;
+    qryDEP_DESCONTO: TBCDField;
+    qryDEP_COEFICIENTE: TBCDField;
+    qryDEP_SITUACAO: TStringField;
+    DBNavigator1: TDBNavigator;
+    DBGrid1: TDBGrid;
     procedure FormClose(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
 
   private
     { Private declarations }
@@ -49,10 +38,17 @@ implementation
 
 {$R *.dfm}
 
+uses Udm;
+
 procedure TFormCadastraSocios.FormClose(Sender: TObject);
 var Action: TCloseAction;
 begin
-          TabelaCadastroSocios.DataSet.Delete;
+
+end;
+
+procedure TFormCadastraSocios.FormCreate(Sender: TObject);
+begin
+  qry.Open;
 end;
 
 end.
