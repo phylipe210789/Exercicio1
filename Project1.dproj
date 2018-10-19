@@ -87,10 +87,13 @@
             <Form>FormPrincipal</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+<<<<<<< HEAD
         <DCCReference Include="UnitSobre.pas">
             <Form>FormSobre</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+=======
+>>>>>>> c41d80621fe46f0d608fa514ff4938d7afc58d01
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

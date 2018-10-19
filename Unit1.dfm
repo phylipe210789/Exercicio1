@@ -87,7 +87,10 @@
       end
       object HelpSobre: TMenuItem
         Caption = '&Sobre'
+<<<<<<< HEAD
         OnClick = HelpSobreClick
+=======
+>>>>>>> c41d80621fe46f0d608fa514ff4938d7afc58d01
       end
     end
   end
@@ -168,7 +171,10 @@
       end
       object PopupHelpSobre: TMenuItem
         Caption = '&Sobre'
+<<<<<<< HEAD
         OnClick = PopupHelpSobreClick
+=======
+>>>>>>> c41d80621fe46f0d608fa514ff4938d7afc58d01
       end
     end
   end

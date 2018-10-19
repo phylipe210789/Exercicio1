@@ -58,8 +58,11 @@ type
     PopupHelpTopicos: TMenuItem;
     PopupHelpSobre: TMenuItem;
     procedure SistemaFinalizarClick(Sender: TObject);
+<<<<<<< HEAD
     procedure HelpSobreClick(Sender: TObject);
     procedure PopupHelpSobreClick(Sender: TObject);
+=======
+>>>>>>> c41d80621fe46f0d608fa514ff4938d7afc58d01
   private
     { Private declarations }
   public
@@ -73,6 +76,7 @@ implementation
 
 {$R *.dfm}
 
+<<<<<<< HEAD
 uses UnitSobre;
 
 procedure TFormPrincipal.HelpSobreClick(Sender: TObject);
@@ -85,6 +89,8 @@ begin
         FormSobre.ShowModal;
 end;
 
+=======
+>>>>>>> c41d80621fe46f0d608fa514ff4938d7afc58d01
 procedure TFormPrincipal.SistemaFinalizarClick(Sender: TObject);
 begin
 Application.Terminate
