@@ -3,7 +3,7 @@ object FormCadastraAtividades: TFormCadastraAtividades
   Top = 0
   Caption = 'Cadastro de Atividades'
   ClientHeight = 322
-  ClientWidth = 1084
+  ClientWidth = 584
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -33,7 +33,7 @@ object FormCadastraAtividades: TFormCadastraAtividades
   object DBGrid2: TDBGrid
     Left = 0
     Top = 94
-    Width = 1084
+    Width = 584
     Height = 228
     Align = alBottom
     DataSource = ds1
