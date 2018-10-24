@@ -2,7 +2,7 @@ object FormCadastroMatricula: TFormCadastroMatricula
   Left = 0
   Top = 0
   Caption = 'Matriculas'
-  ClientHeight = 212
+  ClientHeight = 259
   ClientWidth = 418
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -35,9 +35,27 @@ object FormCadastroMatricula: TFormCadastroMatricula
     Height = 21
     DataField = 'Socio'
     DataSource = ds4
-    ListField = 'CodigoSocio'
+    KeyField = 'CodigoSocio'
+    ListField = 'Nome'
     ListSource = ds2
     TabOrder = 0
+  end
+  object DBNavigator1: TDBNavigator
+    Left = 29
+    Top = 168
+    Width = 240
+    Height = 25
+    DataSource = ds4
+    TabOrder = 1
+  end
+  object Button1: TButton
+    Left = 29
+    Top = 217
+    Width = 75
+    Height = 25
+    Caption = 'Novo'
+    TabOrder = 2
+    OnClick = Button1Click
   end
   object ds2: TDataSource
     DataSet = qry2

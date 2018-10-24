@@ -1,4 +1,4 @@
-unit Unit1;
+unit U_cadAtividade;
 
 interface
 
@@ -8,7 +8,7 @@ uses
   Data.Win.ADODB, Vcl.Grids, Vcl.DBGrids, Vcl.StdCtrls, Vcl.Mask;
 
 type
-  TFormCadastraAtividades = class(TForm)
+  Tfrm_cadAtividade = class(TForm)
     DBGrid2: TDBGrid;
     DBNavigator2: TDBNavigator;
     qry1: TADOQuery;
@@ -30,7 +30,7 @@ type
   end;
 
 var
-  FormCadastraAtividades: TFormCadastraAtividades;
+  frm_cadAtividade: Tfrm_cadAtividade;
 
 implementation
 
@@ -38,13 +38,13 @@ implementation
 
 uses Udm;
 
-procedure TFormCadastraAtividades.FormClose(Sender: TObject);
+procedure Tfrm_cadAtividade.FormClose(Sender: TObject);
 var Action: TCloseAction;
 begin
 
 end;
 
-procedure TFormCadastraAtividades.FormCreate(Sender: TObject);
+procedure Tfrm_cadAtividade.FormCreate(Sender: TObject);
 begin
   qry1.Open;
 end;

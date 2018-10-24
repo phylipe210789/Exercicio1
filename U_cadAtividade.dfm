@@ -1,4 +1,4 @@
-object FormCadastraAtividades: TFormCadastraAtividades
+object frm_cadAtividade: Tfrm_cadAtividade
   Left = 0
   Top = 0
   Caption = 'Cadastro de Atividades'

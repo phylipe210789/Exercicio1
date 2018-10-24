@@ -47,11 +47,11 @@ implementation
 
 {$R *.dfm}
 
-uses UnitSobre, Unit2, Unit3, Unit1, Unit4;
+uses UnitSobre, Unit2, Unit3, U_cadAtividade, Unit4;
 
 procedure TFormPrincipal.AtividadeCadastroClick(Sender: TObject);
 begin
-        FormCadastraAtividades.showmodal;
+        frm_cadAtividade.showmodal;
 end;
 
 procedure TFormPrincipal.HelpSobreClick(Sender: TObject);

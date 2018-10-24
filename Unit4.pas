@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Data.Win.ADODB, Vcl.DBCtrls,
-  Vcl.StdCtrls, Vcl.Mask;
+  Vcl.StdCtrls, Vcl.Mask, Vcl.ExtCtrls;
 
 type
   TFormCadastroMatricula = class(TForm)
@@ -34,8 +34,11 @@ type
     qry4: TADOQuery;
     qry4Socio: TIntegerField;
     qry4Atividade: TIntegerField;
+    DBNavigator1: TDBNavigator;
+    Button1: TButton;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
 
   private
     { Private declarations }
@@ -51,6 +54,17 @@ implementation
 {$R *.dfm}
 
 uses Udm;
+
+procedure TFormCadastroMatricula.Button1Click(Sender: TObject);
+begin
+  if not qry4.Active then
+     qry4.Open;
+
+  qry4.Insert;
+
+
+
+end;
 
 procedure TFormCadastroMatricula.FormClose(Sender: TObject);
 var Action: TCloseAction;

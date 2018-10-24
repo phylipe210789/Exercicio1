@@ -7,7 +7,7 @@ uses
   Unit2 in 'Unit2.pas' {FormCadastraSocios},
   Unit3 in 'Unit3.pas' {FormConsulta},
   Udm in 'Udm.pas' {DM: TDataModule},
-  Unit1 in 'Unit1.pas' {FormCadastraAtividades},
+  U_cadAtividade in 'U_cadAtividade.pas' {frm_cadAtividade},
   Unit4 in 'Unit4.pas' {FormCadastroMatricula};
 
 {$R *.res}
@@ -19,7 +19,7 @@ begin
   Application.CreateForm(TFormPrincipal, FormPrincipal);
   Application.CreateForm(TFormSobre, FormSobre);
   Application.CreateForm(TFormCadastraSocios, FormCadastraSocios);
-  Application.CreateForm(TFormCadastraAtividades, FormCadastraAtividades);
+  Application.CreateForm(Tfrm_cadAtividade, frm_cadAtividade);
   Application.CreateForm(TFormCadastroMatricula, FormCadastroMatricula);
   Application.Run;
 end.
