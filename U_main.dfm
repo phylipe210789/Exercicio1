@@ -14,6 +14,7 @@ object frm_main: Tfrm_main
   Menu = MenuPrincipal
   OldCreateOrder = False
   Position = poScreenCenter
+  WindowState = wsMaximized
   PixelsPerInch = 96
   TextHeight = 13
   object MenuPrincipal: TMainMenu
@@ -23,9 +24,7 @@ object frm_main: Tfrm_main
       Caption = '&Sistema'
       object SistemaBackup: TMenuItem
         Caption = '&Backup'
-      end
-      object SistemaRestaurar: TMenuItem
-        Caption = '&Restaurar'
+        OnClick = SistemaBackupClick
       end
       object N1: TMenuItem
         Caption = '-'

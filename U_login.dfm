@@ -11,14 +11,15 @@ object frm_login: Tfrm_login
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  Position = poScreenCenter
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
     Left = 120
     Top = 16
-    Width = 25
+    Width = 36
     Height = 13
-    Caption = 'Login'
+    Caption = 'Usuario'
   end
   object Label2: TLabel
     Left = 120
@@ -34,21 +35,22 @@ object frm_login: Tfrm_login
     Height = 21
     TabOrder = 0
   end
-  object Edit2: TEdit
-    Left = 120
-    Top = 112
-    Width = 121
-    Height = 21
-    TabOrder = 1
-  end
   object Button1: TButton
     Left = 144
     Top = 160
     Width = 75
     Height = 25
     Caption = 'Entra'
-    TabOrder = 2
+    TabOrder = 1
     OnClick = Button1Click
+  end
+  object Edit2: TEdit
+    Left = 120
+    Top = 120
+    Width = 121
+    Height = 21
+    PasswordChar = '*'
+    TabOrder = 2
   end
   object dslogin: TDataSource
     DataSet = qrylogin

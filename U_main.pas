@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Data.DB, Data.Win.ADODB;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Data.DB, Data.Win.ADODB,
+  Vcl.StdCtrls;
 
 type
   Tfrm_main = class(TForm)
@@ -16,7 +17,6 @@ type
     MenuRelatorios: TMenuItem;
     MenuHelp: TMenuItem;
     SistemaBackup: TMenuItem;
-    SistemaRestaurar: TMenuItem;
     SistemaFinalizar: TMenuItem;
     N1: TMenuItem;
     SociosCadastro: TMenuItem;
@@ -33,6 +33,8 @@ type
     procedure SociosCadastroClick(Sender: TObject);
     procedure AtividadeCadastroClick(Sender: TObject);
     procedure MatriculaCadastroClick(Sender: TObject);
+    procedure SistemaBackupClick(Sender: TObject);
+
   private
     { Private declarations }
   public
@@ -46,7 +48,7 @@ implementation
 
 {$R *.dfm}
 
-uses U_sobre, U_cadMatriculas, U_cadAtividade, U_cadSocios, U_login;
+uses U_login, U_sobre, U_cadMatriculas, U_cadAtividade, U_cadSocios, Udm;
 
 procedure Tfrm_main.AtividadeCadastroClick(Sender: TObject);
 begin
@@ -68,9 +70,25 @@ begin
         frm_sobre.ShowModal;
 end;
 
+procedure Tfrm_main.SistemaBackupClick(Sender: TObject);
+var
+  ADOCommand : TADOCommand;
+  CLIENTE : String;
+begin
+  CLIENTE := 'Clube';
+
+  ADOCommand := TADOCommand.Create(nil);
+  with ADOCommand do begin
+    ADOCommand.ConnectionString := DM.con.ConnectionString;
+    ADOCommand.CommandText := 'BACKUP DATABASE '+CLIENTE+' TO DISK =''C:\Backup\Backup.bak''';
+    ADOCommand.Execute;
+  end;
+    showmessage('Backup Realizado salvo em C:\Backup');
+end;
+
 procedure Tfrm_main.SistemaFinalizarClick(Sender: TObject);
 begin
-  Application.Terminate
+        Application.Terminate
 end;
 
 procedure Tfrm_main.SociosCadastroClick(Sender: TObject);
