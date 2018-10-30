@@ -20,11 +20,9 @@ type
     qryloginsenha: TStringField;
     Edit2: TEdit;
     procedure Button1Click(Sender: TObject);
-    procedure FormClose(Sender: TObject);
     procedure Edit1KeyPress(Sender: TObject; var Key: Char);
     procedure Edit2KeyPress(Sender: TObject; var Key: Char);
     procedure Button1KeyPress(Sender: TObject; var Key: Char);
-    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 
   private
     { Private declarations }
@@ -68,32 +66,20 @@ begin
           end;
 end;
 
-procedure Tfrm_login.FormClose(Sender: TObject);
-var Action: TCloseAction;
-begin
-end;
-
-procedure Tfrm_login.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
-begin
-          if MessageDlg('Deseja realmente fechar o programa',
-              mtConfirmation, [mbYes, mbNo], 0) = mrNo then CanClose := False;
-end;
-
 procedure Tfrm_login.Button1Click(Sender: TObject);
 begin
       qrylogin.SQL.Clear;
       qrylogin.SQL.Add('select * from login where login='''+edit1.Text+''' and senha='''+Edit2.Text+''' ');
       qrylogin.Open;
-      if not qrylogin.eof then
-        begin
-              frm_login.Visible := False;
-              frm_main.showmodal;
-        end
-        else
+      if qrylogin.IsEmpty then
+      begin
           ShowMessage('Login ou Senha incorretos!');
-          frm_login.Edit1.SetFocus;
-          frm_login.Edit1.Clear;
-          frm_login.Edit2.Clear;
+          Edit1.SetFocus;
+          Edit1.Clear;
+          Edit2.Clear;
+      end
+      else
+        ModalResult := mrOk;
 end;
 
 end.

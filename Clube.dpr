@@ -15,12 +15,7 @@ uses
 begin
   Application.Initialize;
   Application.CreateForm(TDM, DM);
-  Application.CreateForm(Tfrm_login, frm_login);
   Application.CreateForm(Tfrm_main, frm_main);
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(Tfrm_cadSocios, frm_cadSocios);
-  Application.CreateForm(Tfrm_cadAtividade, frm_cadAtividade);
-  Application.CreateForm(Tfrm_cadMatriculas, frm_cadMatriculas);
-  Application.CreateForm(Tfrm_sobre, frm_sobre);
   Application.Run;
 end.

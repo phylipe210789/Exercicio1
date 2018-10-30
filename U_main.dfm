@@ -17,8 +17,22 @@ object frm_main: Tfrm_main
   WindowState = wsMaximized
   OnClose = FormClose
   OnCloseQuery = FormCloseQuery
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
+  object Label1: TLabel
+    Left = 208
+    Top = 112
+    Width = 384
+    Height = 77
+    Caption = 'ReportBuilder'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -64
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
   object MenuPrincipal: TMainMenu
     Left = 24
     Top = 24

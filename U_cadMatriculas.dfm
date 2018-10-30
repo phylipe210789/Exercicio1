@@ -3,7 +3,7 @@ object frm_cadMatriculas: Tfrm_cadMatriculas
   Top = 0
   Caption = 'Matriculas'
   ClientHeight = 324
-  ClientWidth = 1084
+  ClientWidth = 673
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -65,10 +65,11 @@ object frm_cadMatriculas: Tfrm_cadMatriculas
   object DBGrid1: TDBGrid
     Left = 0
     Top = 96
-    Width = 1084
+    Width = 673
     Height = 228
     Align = alBottom
     DataSource = ds4
+    Enabled = False
     TabOrder = 3
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -84,19 +85,21 @@ object frm_cadMatriculas: Tfrm_cadMatriculas
       end
       item
         Expanded = False
-        FieldName = 'CodigoSocio'
+        FieldName = 'socio'
+        Width = 253
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'CodigoAtividade'
+        FieldName = 'atividade'
+        Width = 289
         Visible = True
       end>
   end
   object ds2: TDataSource
     DataSet = qry2
-    Left = 624
-    Top = 8
+    Left = 440
+    Top = 48
   end
   object qry2: TADOQuery
     Connection = DM.con
@@ -104,8 +107,7 @@ object frm_cadMatriculas: Tfrm_cadMatriculas
     Parameters = <>
     SQL.Strings = (
       'select * from socios')
-    Left = 560
-    Top = 16
+    Left = 440
     object qry2CodigoSocio: TAutoIncField
       FieldName = 'CodigoSocio'
       ReadOnly = True
@@ -147,8 +149,8 @@ object frm_cadMatriculas: Tfrm_cadMatriculas
   end
   object ds3: TDataSource
     DataSet = qry3
-    Left = 768
-    Top = 16
+    Left = 504
+    Top = 56
   end
   object qry3: TADOQuery
     Connection = DM.con
@@ -156,8 +158,7 @@ object frm_cadMatriculas: Tfrm_cadMatriculas
     Parameters = <>
     SQL.Strings = (
       'select * from atividades')
-    Left = 696
-    Top = 16
+    Left = 504
     object qry3CodigoAtividade: TAutoIncField
       FieldName = 'CodigoAtividade'
       ReadOnly = True
@@ -173,9 +174,10 @@ object frm_cadMatriculas: Tfrm_cadMatriculas
     end
   end
   object ds4: TDataSource
+    AutoEdit = False
     DataSet = qry4
-    Left = 880
-    Top = 16
+    Left = 584
+    Top = 56
   end
   object qry4: TADOQuery
     Connection = DM.con
@@ -183,8 +185,7 @@ object frm_cadMatriculas: Tfrm_cadMatriculas
     Parameters = <>
     SQL.Strings = (
       'select * from matriculas')
-    Left = 832
-    Top = 16
+    Left = 584
     object qry4id_matricula: TAutoIncField
       FieldName = 'id_matricula'
       ReadOnly = True
@@ -194,6 +195,26 @@ object frm_cadMatriculas: Tfrm_cadMatriculas
     end
     object qry4CodigoAtividade: TIntegerField
       FieldName = 'CodigoAtividade'
+    end
+    object qry4socio: TStringField
+      DisplayWidth = 100
+      FieldKind = fkLookup
+      FieldName = 'socio'
+      LookupDataSet = qry2
+      LookupKeyFields = 'CodigoSocio'
+      LookupResultField = 'Nome'
+      KeyFields = 'CodigoSocio'
+      Lookup = True
+    end
+    object qry4atividade: TStringField
+      FieldKind = fkLookup
+      FieldName = 'atividade'
+      LookupDataSet = qry3
+      LookupKeyFields = 'CodigoAtividade'
+      LookupResultField = 'Nome'
+      KeyFields = 'CodigoAtividade'
+      Size = 100
+      Lookup = True
     end
   end
 end

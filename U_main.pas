@@ -27,6 +27,7 @@ type
     HelpTopicos: TMenuItem;
     HelpSobre: TMenuItem;
     AtividadeCadastro: TMenuItem;
+    Label1: TLabel;
     procedure SistemaFinalizarClick(Sender: TObject);
     procedure HelpSobreClick(Sender: TObject);
     procedure PopupHelpSobreClick(Sender: TObject);
@@ -36,6 +37,7 @@ type
     procedure SistemaBackupClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+    procedure FormShow(Sender: TObject);
 
   private
     { Private declarations }
@@ -54,7 +56,12 @@ uses U_login, U_sobre, U_cadMatriculas, U_cadAtividade, U_cadSocios, Udm;
 
 procedure Tfrm_main.AtividadeCadastroClick(Sender: TObject);
 begin
-        frm_cadAtividade.showmodal;
+   with Tfrm_cadAtividade.Create(Application) do
+  try
+    showmodal;
+  finally
+    Free;
+  end;
 end;
 
 procedure Tfrm_main.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -69,24 +76,45 @@ begin
 
 end;
 
+procedure Tfrm_main.FormShow(Sender: TObject);
+begin
+  with Tfrm_login.Create(Application) do
+  try
+     if not(showmodal = mrOk) then
+       Application.Terminate;
+  finally
+    Free;
+  end;
+end;
+
 procedure Tfrm_main.HelpSobreClick(Sender: TObject);
 begin
-      frm_sobre.ShowModal;
+ with Tfrm_sobre.Create(Application) do
+  try
+    showmodal;
+  finally
+    Free;
+  end;
 end;
 
 procedure Tfrm_main.MatriculaCadastroClick(Sender: TObject);
 begin
-        frm_cadMatriculas.qry2.Open;
-        frm_cadMatriculas.qry3.Open;
-        frm_cadMatriculas.qry4.Open;
-        frm_cadMatriculas.DBLookupComboBox1.KeyValue := 0;
-        frm_cadMatriculas.DBLookupComboBox2.KeyValue := 0;
-        frm_cadMatriculas.showmodal;
+  with Tfrm_cadMatriculas.Create(Application) do
+  try
+    showmodal;
+  finally
+    Free;
+  end;
 end;
 
 procedure Tfrm_main.PopupHelpSobreClick(Sender: TObject);
 begin
-        frm_sobre.ShowModal;
+  with Tfrm_sobre.Create(Application) do
+  try
+    showmodal;
+  finally
+    Free;
+  end;
 end;
 
 procedure Tfrm_main.SistemaBackupClick(Sender: TObject);
@@ -107,12 +135,25 @@ end;
 
 procedure Tfrm_main.SistemaFinalizarClick(Sender: TObject);
 begin
-          Application.Terminate
+  Application.Terminate
 end;
 
 procedure Tfrm_main.SociosCadastroClick(Sender: TObject);
 begin
-        frm_cadSocios.showmodal;
+  //con a utilização de uma variavél para receber a instáncia do objeto
+
+ //OPÇÃO A
+ // frm_cadSocios := Tfrm_cadSocios.Create(Application);
+
+ //OPÇÃO B
+  Application.CreateForm(Tfrm_cadSocios, frm_cadSocios);
+
+  try
+    frm_cadSocios.showmodal;
+  finally
+    frm_cadSocios.Free;
+  end;
+
 end;
 
 end.

@@ -12,7 +12,6 @@ object frm_login: Tfrm_login
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
-  OnCloseQuery = FormCloseQuery
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel

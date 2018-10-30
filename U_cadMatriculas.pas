@@ -37,6 +37,8 @@ type
     qry4CodigoSocio: TIntegerField;
     qry4CodigoAtividade: TIntegerField;
     DBGrid1: TDBGrid;
+    qry4socio: TStringField;
+    qry4atividade: TStringField;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
 
@@ -61,14 +63,16 @@ begin
          qry2.Close;
          qry3.Close;
          qry4.Close;
-         frm_cadMatriculas.DBLookupComboBox1.SetFocus;
+         DBLookupComboBox1.SetFocus;
 end;
 
 procedure Tfrm_cadMatriculas.FormCreate(Sender: TObject);
 begin
-          //qry2.Open;
-          //qry3.Open;
-          //qry4.Open;
+      qry2.Open;
+      qry3.Open;
+      qry4.Open;
+      DBLookupComboBox1.KeyValue := 0;
+      DBLookupComboBox2.KeyValue := 0;
 end;
 
 end.
