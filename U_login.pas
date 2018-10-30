@@ -21,6 +21,10 @@ type
     Edit2: TEdit;
     procedure Button1Click(Sender: TObject);
     procedure FormClose(Sender: TObject);
+    procedure Edit1KeyPress(Sender: TObject; var Key: Char);
+    procedure Edit2KeyPress(Sender: TObject; var Key: Char);
+    procedure Button1KeyPress(Sender: TObject; var Key: Char);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 
   private
     { Private declarations }
@@ -37,9 +41,42 @@ implementation
 
 uses Udm, U_main;
 
+procedure Tfrm_login.Button1KeyPress(Sender: TObject; var Key: Char);
+begin
+          if key = #13 then
+          begin
+            key := #0;
+            perform(wm_nextdlgctl,0,0);
+          end;
+end;
+
+procedure Tfrm_login.Edit1KeyPress(Sender: TObject; var Key: Char);
+begin
+        if key = #13 then
+          begin
+            key := #0;
+            perform(wm_nextdlgctl,0,0);
+          end;
+end;
+
+procedure Tfrm_login.Edit2KeyPress(Sender: TObject; var Key: Char);
+begin
+          if key = #13 then
+          begin
+            key := #0;
+            perform(wm_nextdlgctl,0,0);
+          end;
+end;
+
 procedure Tfrm_login.FormClose(Sender: TObject);
 var Action: TCloseAction;
 begin
+end;
+
+procedure Tfrm_login.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+          if MessageDlg('Deseja realmente fechar o programa',
+              mtConfirmation, [mbYes, mbNo], 0) = mrNo then CanClose := False;
 end;
 
 procedure Tfrm_login.Button1Click(Sender: TObject);
@@ -54,6 +91,7 @@ begin
         end
         else
           ShowMessage('Login ou Senha incorretos!');
+          frm_login.Edit1.SetFocus;
           frm_login.Edit1.Clear;
           frm_login.Edit2.Clear;
 end;

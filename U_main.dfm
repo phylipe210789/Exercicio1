@@ -15,6 +15,8 @@ object frm_main: Tfrm_main
   OldCreateOrder = False
   Position = poScreenCenter
   WindowState = wsMaximized
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
   PixelsPerInch = 96
   TextHeight = 13
   object MenuPrincipal: TMainMenu

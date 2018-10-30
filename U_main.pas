@@ -34,6 +34,8 @@ type
     procedure AtividadeCadastroClick(Sender: TObject);
     procedure MatriculaCadastroClick(Sender: TObject);
     procedure SistemaBackupClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
 
   private
     { Private declarations }
@@ -55,6 +57,18 @@ begin
         frm_cadAtividade.showmodal;
 end;
 
+procedure Tfrm_main.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+      Application.Terminate
+end;
+
+procedure Tfrm_main.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
+begin
+          if MessageDlg('Deseja realmente fechar o programa',
+              mtConfirmation, [mbYes, mbNo], 0) = mrNo then CanClose := False;
+
+end;
+
 procedure Tfrm_main.HelpSobreClick(Sender: TObject);
 begin
       frm_sobre.ShowModal;
@@ -62,6 +76,11 @@ end;
 
 procedure Tfrm_main.MatriculaCadastroClick(Sender: TObject);
 begin
+        frm_cadMatriculas.qry2.Open;
+        frm_cadMatriculas.qry3.Open;
+        frm_cadMatriculas.qry4.Open;
+        frm_cadMatriculas.DBLookupComboBox1.KeyValue := 0;
+        frm_cadMatriculas.DBLookupComboBox2.KeyValue := 0;
         frm_cadMatriculas.showmodal;
 end;
 
@@ -80,15 +99,15 @@ begin
   ADOCommand := TADOCommand.Create(nil);
   with ADOCommand do begin
     ADOCommand.ConnectionString := DM.con.ConnectionString;
-    ADOCommand.CommandText := 'BACKUP DATABASE '+CLIENTE+' TO DISK =''C:\Backup\Backup.bak''';
+    ADOCommand.CommandText := 'BACKUP DATABASE '+CLIENTE+' TO DISK =''C:\Backup\Backup Clube.bak''';
     ADOCommand.Execute;
   end;
-    showmessage('Backup Realizado salvo em C:\Backup');
+    showmessage('Backup Realizado e salvo em C:\Backup');
 end;
 
 procedure Tfrm_main.SistemaFinalizarClick(Sender: TObject);
 begin
-        Application.Terminate
+          Application.Terminate
 end;
 
 procedure Tfrm_main.SociosCadastroClick(Sender: TObject);

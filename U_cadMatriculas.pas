@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Data.Win.ADODB, Vcl.DBCtrls,
-  Vcl.StdCtrls, Vcl.Mask, Vcl.ExtCtrls;
+  Vcl.StdCtrls, Vcl.Mask, Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids;
 
 type
   Tfrm_cadMatriculas = class(TForm)
@@ -36,8 +36,9 @@ type
     qry4id_matricula: TAutoIncField;
     qry4CodigoSocio: TIntegerField;
     qry4CodigoAtividade: TIntegerField;
+    DBGrid1: TDBGrid;
     procedure FormCreate(Sender: TObject);
-    procedure FormClose(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
 
   private
     { Private declarations }
@@ -54,16 +55,20 @@ implementation
 
 uses Udm;
 
-procedure Tfrm_cadMatriculas.FormClose(Sender: TObject);
-var Action: TCloseAction;
+procedure Tfrm_cadMatriculas.FormClose(Sender: TObject;
+  var Action: TCloseAction);
 begin
+         qry2.Close;
+         qry3.Close;
+         qry4.Close;
+         frm_cadMatriculas.DBLookupComboBox1.SetFocus;
 end;
 
 procedure Tfrm_cadMatriculas.FormCreate(Sender: TObject);
 begin
-  qry2.Open;
-  qry3.Open;
-  qry4.Open;
+          //qry2.Open;
+          //qry3.Open;
+          //qry4.Open;
 end;
 
 end.

@@ -12,6 +12,7 @@ object frm_login: Tfrm_login
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnCloseQuery = FormCloseQuery
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
@@ -34,6 +35,7 @@ object frm_login: Tfrm_login
     Width = 121
     Height = 21
     TabOrder = 0
+    OnKeyPress = Edit1KeyPress
   end
   object Button1: TButton
     Left = 144
@@ -41,8 +43,9 @@ object frm_login: Tfrm_login
     Width = 75
     Height = 25
     Caption = 'Entra'
-    TabOrder = 1
+    TabOrder = 2
     OnClick = Button1Click
+    OnKeyPress = Button1KeyPress
   end
   object Edit2: TEdit
     Left = 120
@@ -50,7 +53,8 @@ object frm_login: Tfrm_login
     Width = 121
     Height = 21
     PasswordChar = '*'
-    TabOrder = 2
+    TabOrder = 1
+    OnKeyPress = Edit2KeyPress
   end
   object dslogin: TDataSource
     DataSet = qrylogin
