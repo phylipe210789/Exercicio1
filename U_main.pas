@@ -149,10 +149,7 @@ var scaminho : string;
 begin
   with Tfrm_relSocios.Create(Application) do
   try
-    scaminho := ExtractFilePath(Application.ExeName);
-    pp_relSocios.Template.FileName := sCaminho + 'rel_socios.rtm';
-    pp_relSocios.Template.LoadFromFile;
-    pp_relSocios.PrintReport;
+    showmodal;
   finally
     Free;
   end;
