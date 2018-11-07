@@ -27,7 +27,6 @@ type
     HelpTopicos: TMenuItem;
     HelpSobre: TMenuItem;
     AtividadeCadastro: TMenuItem;
-    Label1: TLabel;
     procedure SistemaFinalizarClick(Sender: TObject);
     procedure HelpSobreClick(Sender: TObject);
     procedure PopupHelpSobreClick(Sender: TObject);
@@ -38,6 +37,9 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure FormShow(Sender: TObject);
+    procedure RelatoriosSociosClick(Sender: TObject);
+    procedure RelatorioAtividadeClick(Sender: TObject);
+    procedure RelatorioMatriculaClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -52,7 +54,8 @@ implementation
 
 {$R *.dfm}
 
-uses U_login, U_sobre, U_cadMatriculas, U_cadAtividade, U_cadSocios, Udm;
+uses U_login, U_sobre, U_cadMatriculas, U_cadAtividade, U_cadSocios, Udm,
+     U_relSocios, U_relAtividades, U_relMatriculas;
 
 procedure Tfrm_main.AtividadeCadastroClick(Sender: TObject);
 begin
@@ -112,6 +115,44 @@ begin
   with Tfrm_sobre.Create(Application) do
   try
     showmodal;
+  finally
+    Free;
+  end;
+end;
+
+procedure Tfrm_main.RelatorioAtividadeClick(Sender: TObject);
+var caminho : string;
+begin
+  with Tfrm_relAtividades.Create(Application) do
+  try
+    caminho := ExtractFilePath(Application.ExeName);
+    pp_relAtividades.Template.FileName := Caminho + 'rel_atividades.rtm';
+    pp_relAtividades.Template.LoadFromFile;
+    pp_relAtividades.PrintReport;
+  finally
+    Free;
+  end;
+end;
+
+procedure Tfrm_main.RelatorioMatriculaClick(Sender: TObject);
+begin
+   with Tfrm_relMatriculas.Create(Application) do
+  try
+    showmodal;
+  finally
+    Free;
+  end;
+end;
+
+procedure Tfrm_main.RelatoriosSociosClick(Sender: TObject);
+var scaminho : string;
+begin
+  with Tfrm_relSocios.Create(Application) do
+  try
+    scaminho := ExtractFilePath(Application.ExeName);
+    pp_relSocios.Template.FileName := sCaminho + 'rel_socios.rtm';
+    pp_relSocios.Template.LoadFromFile;
+    pp_relSocios.PrintReport;
   finally
     Free;
   end;
