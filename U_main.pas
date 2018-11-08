@@ -121,14 +121,10 @@ begin
 end;
 
 procedure Tfrm_main.RelatorioAtividadeClick(Sender: TObject);
-var caminho : string;
 begin
   with Tfrm_relAtividades.Create(Application) do
   try
-    caminho := ExtractFilePath(Application.ExeName);
-    pp_relAtividades.Template.FileName := Caminho + 'rel_atividades.rtm';
-    pp_relAtividades.Template.LoadFromFile;
-    pp_relAtividades.PrintReport;
+    showmodal;
   finally
     Free;
   end;
@@ -145,7 +141,6 @@ begin
 end;
 
 procedure Tfrm_main.RelatoriosSociosClick(Sender: TObject);
-var scaminho : string;
 begin
   with Tfrm_relSocios.Create(Application) do
   try

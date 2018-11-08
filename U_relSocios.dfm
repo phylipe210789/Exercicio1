@@ -2,8 +2,8 @@ object frm_relSocios: Tfrm_relSocios
   Left = 0
   Top = 0
   Caption = 'Relatorio Socios'
-  ClientHeight = 209
-  ClientWidth = 322
+  ClientHeight = 187
+  ClientWidth = 400
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,27 +17,27 @@ object frm_relSocios: Tfrm_relSocios
   PixelsPerInch = 96
   TextHeight = 13
   object lbl_relSocios: TLabel
-    Left = 48
-    Top = 77
+    Left = 72
+    Top = 37
     Width = 34
     Height = 13
     Caption = 'S'#243'cios:'
     Enabled = False
   end
   object DBCB_relSocios: TDBLookupComboBox
-    Left = 88
-    Top = 72
+    Left = 112
+    Top = 32
     Width = 145
     Height = 21
     Enabled = False
     KeyField = 'CodigoSocio'
     ListField = 'Nome'
-    ListSource = ds_relSocios
+    ListSource = ds2
     TabOrder = 0
   end
   object chk_relSocios: TCheckBox
-    Left = 249
-    Top = 76
+    Left = 273
+    Top = 36
     Width = 65
     Height = 17
     Caption = 'Todos'
@@ -47,8 +47,8 @@ object frm_relSocios: Tfrm_relSocios
     OnClick = chk_relSociosClick
   end
   object bt_gera: TButton
-    Left = 40
-    Top = 152
+    Left = 72
+    Top = 112
     Width = 75
     Height = 25
     Caption = 'Gerar'
@@ -56,8 +56,8 @@ object frm_relSocios: Tfrm_relSocios
     OnClick = bt_geraClick
   end
   object br_cancela: TButton
-    Left = 192
-    Top = 152
+    Left = 216
+    Top = 112
     Width = 75
     Height = 25
     Caption = 'Cancelar'
@@ -67,8 +67,8 @@ object frm_relSocios: Tfrm_relSocios
   object ppDB_relSocios: TppDBPipeline
     DataSource = ds_relSocios
     UserName = 'Socios'
-    Left = 168
-    Top = 8
+    Left = 280
+    Top = 136
   end
   object pp_relSocios: TppReport
     AutoStop = False
@@ -124,8 +124,8 @@ object frm_relSocios: Tfrm_relSocios
     XLSSettings.Author = 'ReportBuilder'
     XLSSettings.Subject = 'Report'
     XLSSettings.Title = 'Report'
-    Left = 240
-    Top = 8
+    Left = 344
+    Top = 128
     Version = '16.02'
     mmColumnWidth = 197300
     DataPipelineName = 'ppDB_relSocios'
@@ -600,17 +600,31 @@ object frm_relSocios: Tfrm_relSocios
   end
   object ds_relSocios: TDataSource
     DataSet = qry_relSocios
-    Left = 96
-    Top = 8
+    Left = 344
+    Top = 72
   end
   object qry_relSocios: TADOQuery
     Connection = DM.con
     CursorType = ctStatic
-    Parameters = <>
+    Parameters = <
+      item
+        Name = 'codigosocio'
+        Attributes = [paNullable]
+        DataType = ftString
+        NumericScale = 255
+        Precision = 255
+        Size = 10
+        Value = Null
+      end>
     SQL.Strings = (
-      'select * from socios')
-    Left = 32
-    Top = 8
+      'select '
+      '  * '
+      'from '
+      '  socios'
+      'where '
+      '  convert(varchar(10),CodigoSocio) like :codigosocio')
+    Left = 344
+    Top = 16
     object qry_relSociosCodigoSocio: TAutoIncField
       FieldName = 'CodigoSocio'
       ReadOnly = True
@@ -646,6 +660,58 @@ object frm_relSocios: Tfrm_relSocios
       Size = 10
     end
     object qry_relSociosCPF: TStringField
+      FieldName = 'CPF'
+      Size = 11
+    end
+  end
+  object ds2: TDataSource
+    DataSet = qry2
+    Left = 22
+    Top = 56
+  end
+  object qry2: TADOQuery
+    Connection = DM.con
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select * from socios')
+    Left = 22
+    Top = 8
+    object qry2CodigoSocio: TAutoIncField
+      FieldName = 'CodigoSocio'
+      ReadOnly = True
+    end
+    object qry2Nome: TStringField
+      FieldName = 'Nome'
+      Size = 15
+    end
+    object qry2Endereco: TStringField
+      FieldName = 'Endereco'
+      Size = 25
+    end
+    object qry2Complemento: TStringField
+      FieldName = 'Complemento'
+      Size = 10
+    end
+    object qry2Bairro: TStringField
+      FieldName = 'Bairro'
+    end
+    object qry2Cidade: TStringField
+      FieldName = 'Cidade'
+    end
+    object qry2Estado: TStringField
+      FieldName = 'Estado'
+      Size = 2
+    end
+    object qry2CEP: TStringField
+      FieldName = 'CEP'
+      Size = 8
+    end
+    object qry2Telefone: TStringField
+      FieldName = 'Telefone'
+      Size = 10
+    end
+    object qry2CPF: TStringField
       FieldName = 'CPF'
       Size = 11
     end

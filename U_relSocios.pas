@@ -60,6 +60,18 @@ type
     bt_gera: TButton;
     br_cancela: TButton;
     lbl_relSocios: TLabel;
+    ds2: TDataSource;
+    qry2: TADOQuery;
+    qry2CodigoSocio: TAutoIncField;
+    qry2Nome: TStringField;
+    qry2Endereco: TStringField;
+    qry2Complemento: TStringField;
+    qry2Bairro: TStringField;
+    qry2Cidade: TStringField;
+    qry2Estado: TStringField;
+    qry2CEP: TStringField;
+    qry2Telefone: TStringField;
+    qry2CPF: TStringField;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure chk_relSociosClick(Sender: TObject);
@@ -80,12 +92,28 @@ implementation
 {$R *.dfm}
 
 procedure Tfrm_relSocios.bt_geraClick(Sender: TObject);
-var codigosocio : integer;
 begin
-      if TCheckBox(Sender).Checked then
-         pp_relSocios.Print
-         else
-            codigosocio := 0;
+
+   if (not chk_relSocios.Checked) and VarIsNull(DBCB_relSocios.KeyValue) then
+   Begin
+     ShowMessage('Selecione um Registro.');
+     DBCB_relSocios.SetFocus;
+     Exit;
+   end;
+
+   qry_relSocios.Close;
+
+   if chk_relSocios.Checked then
+     qry_relSocios.Parameters.ParamByName('codigosocio').Value := '%'
+   else
+     qry_relSocios.Parameters.ParamByName('codigosocio').Value := DBCB_relSocios.KeyValue;
+
+   qry_relSocios.Open;
+
+   if qry_relSocios.IsEmpty then
+     ShowMessage('Não a dados para ser impresso!')
+   else
+      pp_relSocios.Print;
 end;
 
 procedure Tfrm_relSocios.br_cancelaClick(Sender: TObject);
@@ -100,17 +128,17 @@ begin
 
   if not TCheckBox(Sender).Checked then
     DBCB_relSocios.SetFocus;
-
 end;
 
 procedure Tfrm_relSocios.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
+  qry2.Close;
   qry_relSocios.Close;
 end;
 
 procedure Tfrm_relSocios.FormCreate(Sender: TObject);
 begin
-  qry_relSocios.Open;
+  qry2.Open;
 end;
 
 end.

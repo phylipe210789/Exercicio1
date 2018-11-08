@@ -2,8 +2,8 @@ object frm_relAtividades: Tfrm_relAtividades
   Left = 0
   Top = 0
   Caption = 'Relatorio Atividades'
-  ClientHeight = 324
-  ClientWidth = 352
+  ClientHeight = 187
+  ClientWidth = 400
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,18 +14,53 @@ object frm_relAtividades: Tfrm_relAtividades
   Position = poScreenCenter
   PixelsPerInch = 96
   TextHeight = 13
-  object grid_relAtividades: TDBGrid
-    Left = 8
-    Top = 72
-    Width = 337
-    Height = 244
-    DataSource = ds_relAtividades
+  object lbl_relAtividades: TLabel
+    Left = 64
+    Top = 42
+    Width = 49
+    Height = 13
+    Caption = 'Atividade:'
+    Enabled = False
+  end
+  object DBCB_relAtividades: TDBLookupComboBox
+    Left = 119
+    Top = 37
+    Width = 145
+    Height = 21
+    Enabled = False
+    KeyField = 'CodigoAtividade'
+    ListField = 'Nome'
+    ListSource = ds3
     TabOrder = 0
-    TitleFont.Charset = DEFAULT_CHARSET
-    TitleFont.Color = clWindowText
-    TitleFont.Height = -11
-    TitleFont.Name = 'Tahoma'
-    TitleFont.Style = []
+  end
+  object bt_gera: TButton
+    Left = 72
+    Top = 112
+    Width = 75
+    Height = 25
+    Caption = 'Gerar'
+    TabOrder = 1
+    OnClick = bt_geraClick
+  end
+  object br_cancela: TButton
+    Left = 216
+    Top = 112
+    Width = 75
+    Height = 25
+    Caption = 'Cancelar'
+    TabOrder = 2
+    OnClick = br_cancelaClick
+  end
+  object chk_relAtividades: TCheckBox
+    Left = 280
+    Top = 41
+    Width = 65
+    Height = 17
+    Caption = 'Todos'
+    Checked = True
+    State = cbChecked
+    TabOrder = 3
+    OnClick = chk_relAtividadesClick
   end
   object pp_relAtividades: TppReport
     AutoStop = False
@@ -80,8 +115,8 @@ object frm_relAtividades: Tfrm_relAtividades
     XLSSettings.Author = 'ReportBuilder'
     XLSSettings.Subject = 'Report'
     XLSSettings.Title = 'Report'
-    Left = 264
-    Top = 8
+    Left = 360
+    Top = 104
     Version = '16.02'
     mmColumnWidth = 197300
     DataPipelineName = 'ppDB_relAtividades'
@@ -326,15 +361,15 @@ object frm_relAtividades: Tfrm_relAtividades
   object ppDB_relAtividades: TppDBPipeline
     DataSource = ds_relAtividades
     UserName = 'Atividades'
-    Left = 192
-    Top = 8
+    Left = 296
+    Top = 136
     object ppDB_relAtividadesppField1: TppField
       Alignment = taRightJustify
       FieldAlias = 'CodigoAtividade'
       FieldName = 'CodigoAtividade'
       FieldLength = 0
       DataType = dtLongint
-      DisplayWidth = 10
+      DisplayWidth = 0
       Position = 0
     end
     object ppDB_relAtividadesppField2: TppField
@@ -355,16 +390,72 @@ object frm_relAtividades: Tfrm_relAtividades
     end
   end
   object ds_relAtividades: TDataSource
-    DataSet = tb_relAtividades
-    Left = 120
-    Top = 8
+    DataSet = qry_relAtividade
+    Left = 352
+    Top = 40
   end
-  object tb_relAtividades: TADOTable
+  object qry3: TADOQuery
     Active = True
     Connection = DM.con
     CursorType = ctStatic
-    TableName = 'Atividades'
-    Left = 48
+    Parameters = <>
+    SQL.Strings = (
+      'select * from atividades')
+    Left = 22
     Top = 8
+    object qry3CodigoAtividade: TAutoIncField
+      FieldName = 'CodigoAtividade'
+      ReadOnly = True
+    end
+    object qry3Nome: TStringField
+      FieldName = 'Nome'
+      Size = 25
+    end
+    object qry3Valor: TBCDField
+      FieldName = 'Valor'
+      Precision = 9
+      Size = 2
+    end
+  end
+  object ds3: TDataSource
+    DataSet = qry3
+    Left = 14
+    Top = 72
+  end
+  object qry_relAtividade: TADOQuery
+    Active = True
+    Connection = DM.con
+    CursorType = ctStatic
+    Parameters = <
+      item
+        Name = 'codigoatividade'
+        Attributes = [paNullable]
+        DataType = ftString
+        NumericScale = 255
+        Precision = 255
+        Size = 10
+        Value = Null
+      end>
+    SQL.Strings = (
+      'select '
+      '  * '
+      'from '
+      '  atividades'
+      'where '
+      '  convert(varchar(10),CodigoAtividade) like :codigoatividade')
+    Left = 344
+    object qry_relAtividadeCodigoAtividade: TAutoIncField
+      FieldName = 'CodigoAtividade'
+      ReadOnly = True
+    end
+    object qry_relAtividadeNome: TStringField
+      FieldName = 'Nome'
+      Size = 25
+    end
+    object qry_relAtividadeValor: TBCDField
+      FieldName = 'Valor'
+      Precision = 9
+      Size = 2
+    end
   end
 end
