@@ -11,13 +11,13 @@ uses
   U_login in 'U_login.pas' {frm_login},
   U_relSocios in 'U_relSocios.pas' {frm_relSocios},
   U_relAtividades in 'U_relAtividades.pas' {frm_relAtividades},
-  U_relMatriculas in 'U_relMatriculas.pas' {frm_relMatriculas};
+  U_relMatriculas in 'U_relMatriculas.pas' {frm_relMatriculas},
+  U_DmCadastros in 'U_DmCadastros.pas' {dmCadastros: TDataModule};
 
 {$R *.res}
 
 begin
   Application.Initialize;
-  Application.CreateForm(TDM, DM);
   Application.CreateForm(Tfrm_main, frm_main);
   Application.MainFormOnTaskbar := True;
   Application.Run;

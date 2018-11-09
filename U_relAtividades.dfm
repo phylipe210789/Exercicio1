@@ -30,7 +30,7 @@ object frm_relAtividades: Tfrm_relAtividades
     Enabled = False
     KeyField = 'CodigoAtividade'
     ListField = 'Nome'
-    ListSource = ds3
+    ListSource = dmCadastros.dsCadAtividade
     TabOrder = 0
   end
   object bt_gera: TButton
@@ -395,34 +395,6 @@ object frm_relAtividades: Tfrm_relAtividades
     DataSet = qry_relAtividade
     Left = 352
     Top = 40
-  end
-  object qry3: TADOQuery
-    Active = True
-    Connection = DM.con
-    CursorType = ctStatic
-    Parameters = <>
-    SQL.Strings = (
-      'select * from atividades')
-    Left = 22
-    Top = 8
-    object qry3CodigoAtividade: TAutoIncField
-      FieldName = 'CodigoAtividade'
-      ReadOnly = True
-    end
-    object qry3Nome: TStringField
-      FieldName = 'Nome'
-      Size = 25
-    end
-    object qry3Valor: TBCDField
-      FieldName = 'Valor'
-      Precision = 9
-      Size = 2
-    end
-  end
-  object ds3: TDataSource
-    DataSet = qry3
-    Left = 14
-    Top = 72
   end
   object qry_relAtividade: TADOQuery
     Active = True

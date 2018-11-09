@@ -32,17 +32,12 @@ type
     ppDBText2: TppDBText;
     ppDBText3: TppDBText;
     ppSystemVariable2: TppSystemVariable;
-    qry3: TADOQuery;
-    ds3: TDataSource;
     DBCB_relAtividades: TDBLookupComboBox;
     bt_gera: TButton;
     br_cancela: TButton;
     lbl_relAtividades: TLabel;
     chk_relAtividades: TCheckBox;
     qry_relAtividade: TADOQuery;
-    qry3CodigoAtividade: TAutoIncField;
-    qry3Nome: TStringField;
-    qry3Valor: TBCDField;
     qry_relAtividadeCodigoAtividade: TAutoIncField;
     qry_relAtividadeNome: TStringField;
     qry_relAtividadeValor: TBCDField;
@@ -62,6 +57,8 @@ var
 implementation
 
 {$R *.dfm}
+
+uses U_DmCadastros;
 
 procedure Tfrm_relAtividades.br_cancelaClick(Sender: TObject);
 begin

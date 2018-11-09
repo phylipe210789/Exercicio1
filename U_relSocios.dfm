@@ -30,7 +30,7 @@ object frm_relSocios: Tfrm_relSocios
     Enabled = False
     KeyField = 'CodigoSocio'
     ListField = 'Nome'
-    ListSource = ds2
+    ListSource = dmCadastros.dsCadSocio
     TabOrder = 0
   end
   object chk_relSocios: TCheckBox
@@ -675,7 +675,6 @@ object frm_relSocios: Tfrm_relSocios
     Top = 72
   end
   object qry_relSocios: TADOQuery
-    Active = True
     Connection = DM.con
     CursorType = ctStatic
     Parameters = <
@@ -732,59 +731,6 @@ object frm_relSocios: Tfrm_relSocios
       Size = 10
     end
     object qry_relSociosCPF: TStringField
-      FieldName = 'CPF'
-      Size = 11
-    end
-  end
-  object ds2: TDataSource
-    DataSet = qry2
-    Left = 22
-    Top = 56
-  end
-  object qry2: TADOQuery
-    Active = True
-    Connection = DM.con
-    CursorType = ctStatic
-    Parameters = <>
-    SQL.Strings = (
-      'select * from socios')
-    Left = 22
-    Top = 8
-    object qry2CodigoSocio: TAutoIncField
-      FieldName = 'CodigoSocio'
-      ReadOnly = True
-    end
-    object qry2Nome: TStringField
-      FieldName = 'Nome'
-      Size = 15
-    end
-    object qry2Endereco: TStringField
-      FieldName = 'Endereco'
-      Size = 25
-    end
-    object qry2Complemento: TStringField
-      FieldName = 'Complemento'
-      Size = 10
-    end
-    object qry2Bairro: TStringField
-      FieldName = 'Bairro'
-    end
-    object qry2Cidade: TStringField
-      FieldName = 'Cidade'
-    end
-    object qry2Estado: TStringField
-      FieldName = 'Estado'
-      Size = 2
-    end
-    object qry2CEP: TStringField
-      FieldName = 'CEP'
-      Size = 8
-    end
-    object qry2Telefone: TStringField
-      FieldName = 'Telefone'
-      Size = 10
-    end
-    object qry2CPF: TStringField
       FieldName = 'CPF'
       Size = 11
     end

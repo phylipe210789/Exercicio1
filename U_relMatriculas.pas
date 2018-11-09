@@ -3,7 +3,8 @@ unit U_relMatriculas;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Data.Win.ADODB, ppDB, ppDBPipe,
   ppParameter, ppDesignLayer, ppVar, ppBands, ppCtrls, ppPrnabl, ppClass,
   ppCache, ppComm, ppRelatv, ppProd, ppReport, Vcl.Grids, Vcl.DBGrids,
@@ -14,26 +15,9 @@ type
     bt_gera: TButton;
     br_cancela: TButton;
     DBCB_relSocios: TDBLookupComboBox;
-    ds2: TDataSource;
-    qry2: TADOQuery;
-    qry2CodigoSocio: TAutoIncField;
-    qry2Nome: TStringField;
-    qry2Endereco: TStringField;
-    qry2Complemento: TStringField;
-    qry2Bairro: TStringField;
-    qry2Cidade: TStringField;
-    qry2Estado: TStringField;
-    qry2CEP: TStringField;
-    qry2Telefone: TStringField;
-    qry2CPF: TStringField;
     chk_relSocios: TCheckBox;
     lbl_relSocios: TLabel;
     DBCB_relAtividades: TDBLookupComboBox;
-    ds3: TDataSource;
-    qry3: TADOQuery;
-    qry3CodigoAtividade: TAutoIncField;
-    qry3Nome: TStringField;
-    qry3Valor: TBCDField;
     chk_relAtividades: TCheckBox;
     lbl_relAtividades: TLabel;
     ppDB_relMatriculas: TppDBPipeline;
@@ -55,8 +39,6 @@ type
     ds_relMatriculas: TDataSource;
     qry_relMatriculas: TADOQuery;
     qry_relMatriculasid_matricula: TAutoIncField;
-    qry_relMatriculasNome: TStringField;
-    qry_relMatriculasNome_1: TStringField;
     qry_relMatriculasValor: TBCDField;
     ppDBText1: TppDBText;
     ppDBText2: TppDBText;
@@ -66,6 +48,8 @@ type
     ppDBCalc1: TppDBCalc;
     ppLabel7: TppLabel;
     ppSystemVariable2: TppSystemVariable;
+    qry_relMatriculassocio: TStringField;
+    qry_relMatriculasatividade: TStringField;
     procedure chk_relSociosClick(Sender: TObject);
     procedure chk_relAtividadesClick(Sender: TObject);
     procedure br_cancelaClick(Sender: TObject);
@@ -83,6 +67,8 @@ var
 implementation
 
 {$R *.dfm}
+
+uses U_DmCadastros;
 
 procedure Tfrm_relMatriculas.br_cancelaClick(Sender: TObject);
 begin

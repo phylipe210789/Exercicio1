@@ -2,8 +2,8 @@ object frm_relMatriculas: Tfrm_relMatriculas
   Left = 0
   Top = 0
   Caption = 'Relatorio de Matriculas'
-  ClientHeight = 324
-  ClientWidth = 683
+  ClientHeight = 277
+  ClientWidth = 371
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -31,8 +31,8 @@ object frm_relMatriculas: Tfrm_relMatriculas
     Enabled = False
   end
   object bt_gera: TButton
-    Left = 232
-    Top = 240
+    Left = 96
+    Top = 232
     Width = 75
     Height = 25
     Caption = 'Gerar'
@@ -40,8 +40,8 @@ object frm_relMatriculas: Tfrm_relMatriculas
     OnClick = bt_geraClick
   end
   object br_cancela: TButton
-    Left = 376
-    Top = 240
+    Left = 240
+    Top = 232
     Width = 75
     Height = 25
     Caption = 'Cancelar'
@@ -56,7 +56,7 @@ object frm_relMatriculas: Tfrm_relMatriculas
     Enabled = False
     KeyField = 'CodigoSocio'
     ListField = 'Nome'
-    ListSource = ds2
+    ListSource = dmCadastros.dsCadSocio
     TabOrder = 2
   end
   object chk_relSocios: TCheckBox
@@ -78,7 +78,7 @@ object frm_relMatriculas: Tfrm_relMatriculas
     Enabled = False
     KeyField = 'CodigoAtividade'
     ListField = 'Nome'
-    ListSource = ds3
+    ListSource = dmCadastros.dsCadAtividade
     TabOrder = 4
   end
   object chk_relAtividades: TCheckBox
@@ -92,122 +92,41 @@ object frm_relMatriculas: Tfrm_relMatriculas
     TabOrder = 5
     OnClick = chk_relAtividadesClick
   end
-  object ds2: TDataSource
-    DataSet = qry2
-    Left = 22
-    Top = 72
-  end
-  object qry2: TADOQuery
-    Active = True
-    Connection = DM.con
-    CursorType = ctStatic
-    Parameters = <>
-    SQL.Strings = (
-      'select * from socios')
-    Left = 22
-    Top = 24
-    object qry2CodigoSocio: TAutoIncField
-      FieldName = 'CodigoSocio'
-      ReadOnly = True
-    end
-    object qry2Nome: TStringField
-      FieldName = 'Nome'
-      Size = 15
-    end
-    object qry2Endereco: TStringField
-      FieldName = 'Endereco'
-      Size = 25
-    end
-    object qry2Complemento: TStringField
-      FieldName = 'Complemento'
-      Size = 10
-    end
-    object qry2Bairro: TStringField
-      FieldName = 'Bairro'
-    end
-    object qry2Cidade: TStringField
-      FieldName = 'Cidade'
-    end
-    object qry2Estado: TStringField
-      FieldName = 'Estado'
-      Size = 2
-    end
-    object qry2CEP: TStringField
-      FieldName = 'CEP'
-      Size = 8
-    end
-    object qry2Telefone: TStringField
-      FieldName = 'Telefone'
-      Size = 10
-    end
-    object qry2CPF: TStringField
-      FieldName = 'CPF'
-      Size = 11
-    end
-  end
-  object ds3: TDataSource
-    DataSet = qry3
-    Left = 23
-    Top = 192
-  end
-  object qry3: TADOQuery
-    Active = True
-    Connection = DM.con
-    CursorType = ctStatic
-    Parameters = <>
-    SQL.Strings = (
-      'select * from atividades')
-    Left = 23
-    Top = 128
-    object qry3CodigoAtividade: TAutoIncField
-      FieldName = 'CodigoAtividade'
-      ReadOnly = True
-    end
-    object qry3Nome: TStringField
-      FieldName = 'Nome'
-      Size = 25
-    end
-    object qry3Valor: TBCDField
-      FieldName = 'Valor'
-      Precision = 9
-      Size = 2
-    end
-  end
   object ppDB_relMatriculas: TppDBPipeline
     DataSource = ds_relMatriculas
     UserName = 'Socios'
-    Left = 528
-    Top = 200
+    Left = 256
+    Top = 184
     object ppDB_relMatriculasppField1: TppField
       Alignment = taRightJustify
       FieldAlias = 'id_matricula'
       FieldName = 'id_matricula'
       FieldLength = 0
       DataType = dtLongint
-      DisplayWidth = 10
+      DisplayWidth = 0
       Position = 0
     end
     object ppDB_relMatriculasppField2: TppField
-      FieldAlias = 'Nome'
-      FieldName = 'Nome'
-      FieldLength = 15
-      DisplayWidth = 15
-      Position = 1
-    end
-    object ppDB_relMatriculasppField3: TppField
-      FieldAlias = 'Nome_1'
-      FieldName = 'Nome_1'
-      FieldLength = 25
-      DisplayWidth = 25
-      Position = 2
-    end
-    object ppDB_relMatriculasppField4: TppField
       Alignment = taRightJustify
       FieldAlias = 'Valor'
       FieldName = 'Valor'
       FieldLength = 2
       DataType = dtDouble
       DisplayWidth = 10
+      Position = 1
+    end
+    object ppDB_relMatriculasppField3: TppField
+      FieldAlias = 'socio'
+      FieldName = 'socio'
+      FieldLength = 15
+      DisplayWidth = 15
+      Position = 2
+    end
+    object ppDB_relMatriculasppField4: TppField
+      FieldAlias = 'atividade'
+      FieldName = 'atividade'
+      FieldLength = 25
+      DisplayWidth = 25
       Position = 3
     end
   end
@@ -264,8 +183,8 @@ object frm_relMatriculas: Tfrm_relMatriculas
     XLSSettings.Author = 'ReportBuilder'
     XLSSettings.Subject = 'Report'
     XLSSettings.Title = 'Report'
-    Left = 528
-    Top = 136
+    Left = 256
+    Top = 120
     Version = '16.02'
     mmColumnWidth = 197300
     DataPipelineName = 'ppDB_relMatriculas'
@@ -438,7 +357,7 @@ object frm_relMatriculas: Tfrm_relMatriculas
       object ppDBText2: TppDBText
         DesignLayer = ppDesignLayer1
         UserName = 'DBText2'
-        DataField = 'Nome'
+        DataField = 'socio'
         DataPipeline = ppDB_relMatriculas
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
@@ -457,7 +376,7 @@ object frm_relMatriculas: Tfrm_relMatriculas
       object ppDBText3: TppDBText
         DesignLayer = ppDesignLayer1
         UserName = 'DBText3'
-        DataField = 'Nome_1'
+        DataField = 'atividade'
         DataPipeline = ppDB_relMatriculas
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
@@ -588,11 +507,10 @@ object frm_relMatriculas: Tfrm_relMatriculas
   end
   object ds_relMatriculas: TDataSource
     DataSet = qry_relMatriculas
-    Left = 528
-    Top = 72
+    Left = 256
+    Top = 56
   end
   object qry_relMatriculas: TADOQuery
-    Active = True
     Connection = DM.con
     CursorType = ctStatic
     Parameters = <
@@ -615,37 +533,38 @@ object frm_relMatriculas: Tfrm_relMatriculas
         Value = Null
       end>
     SQL.Strings = (
+      'SELECT '
       
-        'SELECT Matriculas.id_matricula, Socios.Nome, Atividades.Nome, At' +
-        'ividades.Valor FROM Matriculas'
-      'INNER JOIN Socios ON Socios.CodigoSocio = Matriculas.CodigoSocio'
+        '       M.id_matricula, S.Nome as socio, A.Nome as atividade, A.V' +
+        'alor '
+      'FROM '
+      '       Matriculas M'
+      'INNER JOIN '
+      '      Socios S ON S.CodigoSocio = M.CodigoSocio'
+      'INNER JOIN '
+      '      Atividades A ON A.CodigoAtividade = M.CodigoAtividade'
+      'WHERE '
+      '      convert(varchar(10),M.CodigoSocio) like :codigosocio'
       
-        'INNER JOIN Atividades ON Atividades.CodigoAtividade = Matriculas' +
-        '.CodigoAtividade'
-      
-        'WHERE convert(varchar(10),Matriculas.CodigoSocio) like :codigoso' +
-        'cio'
-      
-        'AND convert(varchar(10),Matriculas.CodigoAtividade) like :codigo' +
-        'atividade')
-    Left = 528
-    Top = 16
+        '      AND convert(varchar(10),M.CodigoAtividade) like :codigoati' +
+        'vidade')
+    Left = 256
     object qry_relMatriculasid_matricula: TAutoIncField
       FieldName = 'id_matricula'
       ReadOnly = True
-    end
-    object qry_relMatriculasNome: TStringField
-      FieldName = 'Nome'
-      Size = 15
-    end
-    object qry_relMatriculasNome_1: TStringField
-      FieldName = 'Nome_1'
-      Size = 25
     end
     object qry_relMatriculasValor: TBCDField
       FieldName = 'Valor'
       Precision = 9
       Size = 2
+    end
+    object qry_relMatriculassocio: TStringField
+      FieldName = 'socio'
+      Size = 15
+    end
+    object qry_relMatriculasatividade: TStringField
+      FieldName = 'atividade'
+      Size = 25
     end
   end
 end

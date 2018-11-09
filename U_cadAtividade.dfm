@@ -12,7 +12,6 @@ object frm_cadAtividade: Tfrm_cadAtividade
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
@@ -37,7 +36,7 @@ object frm_cadAtividade: Tfrm_cadAtividade
     Width = 584
     Height = 228
     Align = alBottom
-    DataSource = ds1
+    DataSource = dmCadastros.dsCadAtividade
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -50,7 +49,7 @@ object frm_cadAtividade: Tfrm_cadAtividade
     Top = 48
     Width = 240
     Height = 25
-    DataSource = ds1
+    DataSource = dmCadastros.dsCadAtividade
     TabOrder = 1
   end
   object DBEdit1: TDBEdit
@@ -59,7 +58,7 @@ object frm_cadAtividade: Tfrm_cadAtividade
     Width = 134
     Height = 21
     DataField = 'CodigoAtividade'
-    DataSource = ds1
+    DataSource = dmCadastros.dsCadAtividade
     TabOrder = 2
   end
   object DBEdit2: TDBEdit
@@ -68,33 +67,7 @@ object frm_cadAtividade: Tfrm_cadAtividade
     Width = 329
     Height = 21
     DataField = 'Nome'
-    DataSource = ds1
+    DataSource = dmCadastros.dsCadAtividade
     TabOrder = 3
-  end
-  object ds1: TDataSource
-    DataSet = qry1
-    Left = 200
-    Top = 160
-  end
-  object qry1: TADOQuery
-    Connection = DM.con
-    CursorType = ctStatic
-    Parameters = <>
-    SQL.Strings = (
-      'select * from atividades')
-    Left = 104
-    Top = 160
-    object qry1CodigoAtividade: TIntegerField
-      FieldName = 'CodigoAtividade'
-    end
-    object qry1Nome: TStringField
-      FieldName = 'Nome'
-      Size = 25
-    end
-    object qry1Valor: TBCDField
-      FieldName = 'Valor'
-      Precision = 8
-      Size = 2
-    end
   end
 end

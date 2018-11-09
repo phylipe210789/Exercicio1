@@ -3,7 +3,7 @@ unit Udm;
 interface
 
 uses
-  System.SysUtils, System.Classes, Data.DB, Data.Win.ADODB;
+  System.SysUtils, System.Classes, Data.DB, Data.Win.ADODB, forms;
 
 type
   TDM = class(TDataModule)
@@ -22,5 +22,8 @@ implementation
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
+
+initialization
+  DM := TDM.Create(Application);
 
 end.

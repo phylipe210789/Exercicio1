@@ -60,18 +60,6 @@ type
     bt_gera: TButton;
     br_cancela: TButton;
     lbl_relSocios: TLabel;
-    ds2: TDataSource;
-    qry2: TADOQuery;
-    qry2CodigoSocio: TAutoIncField;
-    qry2Nome: TStringField;
-    qry2Endereco: TStringField;
-    qry2Complemento: TStringField;
-    qry2Bairro: TStringField;
-    qry2Cidade: TStringField;
-    qry2Estado: TStringField;
-    qry2CEP: TStringField;
-    qry2Telefone: TStringField;
-    qry2CPF: TStringField;
     procedure chk_relSociosClick(Sender: TObject);
     procedure bt_geraClick(Sender: TObject);
     procedure br_cancelaClick(Sender: TObject);
@@ -88,6 +76,8 @@ var
 implementation
 
 {$R *.dfm}
+
+uses U_DmCadastros;
 
 procedure Tfrm_relSocios.bt_geraClick(Sender: TObject);
 begin

@@ -11,17 +11,10 @@ type
   Tfrm_cadAtividade = class(TForm)
     DBGrid2: TDBGrid;
     DBNavigator2: TDBNavigator;
-    qry1: TADOQuery;
-    ds1: TDataSource;
-    qry1CodigoAtividade: TIntegerField;
-    qry1Nome: TStringField;
-    qry1Valor: TBCDField;
     Label1: TLabel;
     DBEdit1: TDBEdit;
     Label2: TLabel;
     DBEdit2: TDBEdit;
-    procedure FormClose(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
 
   private
     { Private declarations }
@@ -36,17 +29,6 @@ implementation
 
 {$R *.dfm}
 
-uses Udm;
-
-procedure Tfrm_cadAtividade.FormClose(Sender: TObject);
-var Action: TCloseAction;
-begin
-
-end;
-
-procedure Tfrm_cadAtividade.FormCreate(Sender: TObject);
-begin
-  qry1.Open;
-end;
+uses Udm, U_DmCadastros;
 
 end.

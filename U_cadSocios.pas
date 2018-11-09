@@ -9,26 +9,12 @@ uses
 
 type
   Tfrm_cadSocios = class(TForm)
-    DBGrid1: TDBGrid;
     DBNavigator1: TDBNavigator;
-    qry: TADOQuery;
-    ds: TDataSource;
     Label1: TLabel;
     DBEdit1: TDBEdit;
     Label2: TLabel;
     DBEdit2: TDBEdit;
-    qryCodigoSocio: TAutoIncField;
-    qryNome: TStringField;
-    qryEndereco: TStringField;
-    qryComplemento: TStringField;
-    qryBairro: TStringField;
-    qryCidade: TStringField;
-    qryEstado: TStringField;
-    qryCEP: TStringField;
-    qryTelefone: TStringField;
-    qryCPF: TStringField;
-    procedure FormClose(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
+    DBGrid1: TDBGrid;
 
   private
     { Private declarations }
@@ -43,17 +29,6 @@ implementation
 
 {$R *.dfm}
 
-uses Udm;
-
-procedure Tfrm_cadSocios.FormClose(Sender: TObject);
-var Action: TCloseAction;
-begin
-
-end;
-
-procedure Tfrm_cadSocios.FormCreate(Sender: TObject);
-begin
-  qry.Open;
-end;
+uses Udm, U_DmCadastros;
 
 end.

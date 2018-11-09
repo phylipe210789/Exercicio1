@@ -126,6 +126,11 @@
             <Form>frm_relMatriculas</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="U_DmCadastros.pas">
+            <Form>dmCadastros</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
