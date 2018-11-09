@@ -68,7 +68,19 @@ begin
 end;
 
 procedure Tfrm_main.FormClose(Sender: TObject; var Action: TCloseAction);
+var
+  ADOCommand : TADOCommand;
+  CLIENTE : String;
 begin
+  CLIENTE := 'Clube';
+
+  ADOCommand := TADOCommand.Create(nil);
+  with ADOCommand do begin
+    ADOCommand.ConnectionString := DM.con.ConnectionString;
+    ADOCommand.CommandText := 'BACKUP DATABASE '+CLIENTE+' TO DISK =''C:\Backup\Backup Clube.bak''';
+    ADOCommand.Execute;
+  end;
+    showmessage('Backup Realizado e salvo em C:\Backup');
       Application.Terminate
 end;
 

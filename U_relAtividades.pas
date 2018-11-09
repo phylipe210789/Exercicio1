@@ -49,6 +49,7 @@ type
     procedure bt_geraClick(Sender: TObject);
     procedure br_cancelaClick(Sender: TObject);
     procedure chk_relAtividadesClick(Sender: TObject);
+
   private
     { Private declarations }
   public

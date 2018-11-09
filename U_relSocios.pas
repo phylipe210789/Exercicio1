@@ -72,8 +72,6 @@ type
     qry2CEP: TStringField;
     qry2Telefone: TStringField;
     qry2CPF: TStringField;
-    procedure FormCreate(Sender: TObject);
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure chk_relSociosClick(Sender: TObject);
     procedure bt_geraClick(Sender: TObject);
     procedure br_cancelaClick(Sender: TObject);
@@ -129,16 +127,4 @@ begin
   if not TCheckBox(Sender).Checked then
     DBCB_relSocios.SetFocus;
 end;
-
-procedure Tfrm_relSocios.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-  qry2.Close;
-  qry_relSocios.Close;
-end;
-
-procedure Tfrm_relSocios.FormCreate(Sender: TObject);
-begin
-  qry2.Open;
-end;
-
 end.

@@ -226,6 +226,7 @@ object frm_relAtividades: Tfrm_relAtividades
       object ppSystemVariable2: TppSystemVariable
         DesignLayer = ppDesignLayer1
         UserName = 'SystemVariable2'
+        VarType = vtPrintDateTime
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
@@ -233,9 +234,9 @@ object frm_relAtividades: Tfrm_relAtividades
         Font.Style = [fsBold]
         Transparent = True
         mmHeight = 4233
-        mmLeft = 175948
+        mmLeft = 162454
         mmTop = 2117
-        mmWidth = 16934
+        mmWidth = 31221
         BandType = 0
         LayerName = Foreground
       end
@@ -259,10 +260,10 @@ object frm_relAtividades: Tfrm_relAtividades
         TextAlignment = taCentered
         Transparent = True
         DataPipelineName = 'ppDB_relAtividades'
-        mmHeight = 4498
+        mmHeight = 4233
         mmLeft = 1852
         mmTop = 794
-        mmWidth = 13494
+        mmWidth = 11906
         BandType = 4
         LayerName = Foreground
       end
@@ -290,6 +291,7 @@ object frm_relAtividades: Tfrm_relAtividades
         UserName = 'DBText3'
         DataField = 'Valor'
         DataPipeline = ppDB_relAtividades
+        DisplayFormat = '#,0.00;-#,0.00'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
@@ -300,7 +302,7 @@ object frm_relAtividades: Tfrm_relAtividades
         mmHeight = 4498
         mmLeft = 64029
         mmTop = 794
-        mmWidth = 9260
+        mmWidth = 17727
         BandType = 4
         LayerName = Foreground
       end
@@ -369,7 +371,7 @@ object frm_relAtividades: Tfrm_relAtividades
       FieldName = 'CodigoAtividade'
       FieldLength = 0
       DataType = dtLongint
-      DisplayWidth = 0
+      DisplayWidth = 10
       Position = 0
     end
     object ppDB_relAtividadesppField2: TppField

@@ -12,8 +12,6 @@ object frm_relSocios: Tfrm_relSocios
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
-  OnClose = FormClose
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object lbl_relSocios: TLabel
@@ -69,6 +67,78 @@ object frm_relSocios: Tfrm_relSocios
     UserName = 'Socios'
     Left = 280
     Top = 136
+    object ppDB_relSociosppField1: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CodigoSocio'
+      FieldName = 'CodigoSocio'
+      FieldLength = 0
+      DataType = dtLongint
+      DisplayWidth = 0
+      Position = 0
+    end
+    object ppDB_relSociosppField2: TppField
+      FieldAlias = 'Nome'
+      FieldName = 'Nome'
+      FieldLength = 15
+      DisplayWidth = 15
+      Position = 1
+    end
+    object ppDB_relSociosppField3: TppField
+      FieldAlias = 'Endereco'
+      FieldName = 'Endereco'
+      FieldLength = 25
+      DisplayWidth = 25
+      Position = 2
+    end
+    object ppDB_relSociosppField4: TppField
+      FieldAlias = 'Complemento'
+      FieldName = 'Complemento'
+      FieldLength = 10
+      DisplayWidth = 10
+      Position = 3
+    end
+    object ppDB_relSociosppField5: TppField
+      FieldAlias = 'Bairro'
+      FieldName = 'Bairro'
+      FieldLength = 20
+      DisplayWidth = 20
+      Position = 4
+    end
+    object ppDB_relSociosppField6: TppField
+      FieldAlias = 'Cidade'
+      FieldName = 'Cidade'
+      FieldLength = 20
+      DisplayWidth = 20
+      Position = 5
+    end
+    object ppDB_relSociosppField7: TppField
+      FieldAlias = 'Estado'
+      FieldName = 'Estado'
+      FieldLength = 2
+      DisplayWidth = 2
+      Position = 6
+    end
+    object ppDB_relSociosppField8: TppField
+      FieldAlias = 'CEP'
+      FieldName = 'CEP'
+      FieldLength = 8
+      DisplayWidth = 8
+      Position = 7
+    end
+    object ppDB_relSociosppField9: TppField
+      FieldAlias = 'Telefone'
+      FieldName = 'Telefone'
+      FieldLength = 10
+      DisplayWidth = 10
+      Position = 8
+    end
+    object ppDB_relSociosppField10: TppField
+      FieldAlias = 'CPF'
+      FieldName = 'CPF'
+      FieldLength = 11
+      DisplayWidth = 11
+      Position = 9
+    end
   end
   object pp_relSocios: TppReport
     AutoStop = False
@@ -156,6 +226,7 @@ object frm_relSocios: Tfrm_relSocios
       object ppSystemVariable2: TppSystemVariable
         DesignLayer = ppDesignLayer1
         UserName = 'SystemVariable2'
+        VarType = vtPrintDateTime
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
@@ -164,9 +235,9 @@ object frm_relSocios: Tfrm_relSocios
         TextAlignment = taCentered
         Transparent = True
         mmHeight = 4233
-        mmLeft = 262732
+        mmLeft = 250296
         mmTop = 1323
-        mmWidth = 16933
+        mmWidth = 31221
         BandType = 0
         LayerName = Foreground
       end
@@ -604,6 +675,7 @@ object frm_relSocios: Tfrm_relSocios
     Top = 72
   end
   object qry_relSocios: TADOQuery
+    Active = True
     Connection = DM.con
     CursorType = ctStatic
     Parameters = <
@@ -670,6 +742,7 @@ object frm_relSocios: Tfrm_relSocios
     Top = 56
   end
   object qry2: TADOQuery
+    Active = True
     Connection = DM.con
     CursorType = ctStatic
     Parameters = <>
