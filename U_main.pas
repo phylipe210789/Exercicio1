@@ -59,11 +59,11 @@ uses U_login, U_sobre, U_cadMatriculas, U_cadAtividade, U_cadSocios, Udm,
 
 procedure Tfrm_main.AtividadeCadastroClick(Sender: TObject);
 begin
-   with Tfrm_cadAtividade.Create(Application) do
-  try
-    showmodal;
-  finally
-    Free;
+  with Tfrm_cadAtividade.Create(Application) do
+    try
+      showmodal;
+    finally
+      Free;
   end;
 end;
 

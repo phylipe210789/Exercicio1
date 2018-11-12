@@ -14,60 +14,43 @@ object frm_cadSocios: Tfrm_cadSocios
   Position = poScreenCenter
   PixelsPerInch = 96
   TextHeight = 13
-  object Label1: TLabel
-    Left = 8
-    Top = 0
-    Width = 58
-    Height = 13
-    Caption = 'CodigoSocio'
-    FocusControl = DBEdit1
-  end
-  object Label2: TLabel
-    Left = 168
-    Top = 0
-    Width = 27
-    Height = 13
-    Caption = 'Nome'
-    FocusControl = DBEdit2
-  end
-  object DBNavigator1: TDBNavigator
-    Left = 24
-    Top = 46
-    Width = 240
-    Height = 25
-    DataSource = dmCadastros.dsCadSocio
-    TabOrder = 0
-  end
-  object DBEdit1: TDBEdit
-    Left = 8
-    Top = 19
-    Width = 134
-    Height = 21
-    DataField = 'CodigoSocio'
-    DataSource = dmCadastros.dsCadSocio
-    TabOrder = 1
-  end
-  object DBEdit2: TDBEdit
-    Left = 168
-    Top = 19
-    Width = 199
-    Height = 21
-    DataField = 'Nome'
-    DataSource = dmCadastros.dsCadSocio
-    TabOrder = 2
-  end
   object DBGrid1: TDBGrid
     Left = 0
-    Top = 96
+    Top = 40
     Width = 1084
     Height = 228
-    Align = alBottom
+    Align = alCustom
     DataSource = dmCadastros.dsCadSocio
-    TabOrder = 3
+    TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+  end
+  object bt_altSocio: TButton
+    Left = 89
+    Top = 8
+    Width = 75
+    Height = 25
+    Caption = '&Alterar'
+    TabOrder = 1
+  end
+  object bt_excSoscio: TButton
+    Left = 170
+    Top = 8
+    Width = 75
+    Height = 25
+    Caption = '&Excluir'
+    TabOrder = 2
+  end
+  object bt_cadSocio: TButton
+    Left = 8
+    Top = 8
+    Width = 75
+    Height = 25
+    Caption = '&Cadastrar'
+    TabOrder = 3
+    OnClick = bt_cadSocioClick
   end
 end

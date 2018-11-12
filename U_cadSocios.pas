@@ -9,12 +9,11 @@ uses
 
 type
   Tfrm_cadSocios = class(TForm)
-    DBNavigator1: TDBNavigator;
-    Label1: TLabel;
-    DBEdit1: TDBEdit;
-    Label2: TLabel;
-    DBEdit2: TDBEdit;
     DBGrid1: TDBGrid;
+    bt_altSocio: TButton;
+    bt_excSoscio: TButton;
+    bt_cadSocio: TButton;
+    procedure bt_cadSocioClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -29,6 +28,19 @@ implementation
 
 {$R *.dfm}
 
-uses Udm, U_DmCadastros;
+uses Udm, U_DmCadastros, U_salvaSocio;
+
+procedure Tfrm_cadSocios.bt_cadSocioClick(Sender: TObject);
+begin
+  with Tfrm_salvaSocio.Create(Application) do
+    try
+      showmodal;
+    finally
+      free;
+  end;
+
+  frm_cadSocios.Close;
+
+end;
 
 end.
