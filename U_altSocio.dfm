@@ -1,7 +1,7 @@
-object frm_salvaSocio: Tfrm_salvaSocio
+object frm_altSocio: Tfrm_altSocio
   Left = 0
   Top = 0
-  Caption = 'Cadastro Socio'
+  Caption = 'Alterar Socio'
   ClientHeight = 202
   ClientWidth = 697
   Color = clBtnFace
@@ -97,6 +97,8 @@ object frm_salvaSocio: Tfrm_salvaSocio
     Top = 8
     Width = 219
     Height = 21
+    DataField = 'Nome'
+    DataSource = dmCadastros.dsCadSocio
     TabOrder = 0
   end
   object DBedit_ruaSocio: TDBEdit
@@ -104,6 +106,8 @@ object frm_salvaSocio: Tfrm_salvaSocio
     Top = 45
     Width = 254
     Height = 21
+    DataField = 'Endereco'
+    DataSource = dmCadastros.dsCadSocio
     TabOrder = 1
   end
   object DBedit_codSocio: TDBEdit
@@ -111,6 +115,8 @@ object frm_salvaSocio: Tfrm_salvaSocio
     Top = 8
     Width = 24
     Height = 21
+    DataField = 'CodigoSocio'
+    DataSource = dmCadastros.dsCadSocio
     Enabled = False
     TabOrder = 2
   end
@@ -119,6 +125,8 @@ object frm_salvaSocio: Tfrm_salvaSocio
     Top = 45
     Width = 150
     Height = 21
+    DataField = 'Bairro'
+    DataSource = dmCadastros.dsCadSocio
     TabOrder = 3
   end
   object DBedit_cpfSocio: TDBEdit
@@ -126,6 +134,8 @@ object frm_salvaSocio: Tfrm_salvaSocio
     Top = 8
     Width = 121
     Height = 21
+    DataField = 'CPF'
+    DataSource = dmCadastros.dsCadSocio
     TabOrder = 4
   end
   object DBedit_compSocio: TDBEdit
@@ -133,6 +143,8 @@ object frm_salvaSocio: Tfrm_salvaSocio
     Top = 45
     Width = 121
     Height = 21
+    DataField = 'Complemento'
+    DataSource = dmCadastros.dsCadSocio
     TabOrder = 5
   end
   object DBedit_ufSocio: TDBEdit
@@ -140,6 +152,8 @@ object frm_salvaSocio: Tfrm_salvaSocio
     Top = 85
     Width = 22
     Height = 21
+    DataField = 'Estado'
+    DataSource = dmCadastros.dsCadSocio
     TabOrder = 6
   end
   object DBedit_cepSocio: TDBEdit
@@ -147,6 +161,8 @@ object frm_salvaSocio: Tfrm_salvaSocio
     Top = 85
     Width = 121
     Height = 21
+    DataField = 'CEP'
+    DataSource = dmCadastros.dsCadSocio
     TabOrder = 7
   end
   object DBedit_cidSocio: TDBEdit
@@ -154,6 +170,8 @@ object frm_salvaSocio: Tfrm_salvaSocio
     Top = 85
     Width = 215
     Height = 21
+    DataField = 'Cidade'
+    DataSource = dmCadastros.dsCadSocio
     TabOrder = 8
   end
   object DBedit_telSocio: TDBEdit
@@ -161,6 +179,8 @@ object frm_salvaSocio: Tfrm_salvaSocio
     Top = 8
     Width = 121
     Height = 21
+    DataField = 'Telefone'
+    DataSource = dmCadastros.dsCadSocio
     TabOrder = 9
   end
   object bt_salvarSocio: TButton
@@ -170,6 +190,7 @@ object frm_salvaSocio: Tfrm_salvaSocio
     Height = 25
     Caption = '&Salvar'
     TabOrder = 10
+    OnClick = bt_salvarSocioClick
   end
   object bt_cancelSocio: TButton
     Left = 602

@@ -1,4 +1,4 @@
-unit U_salvaSocio;
+unit U_altSocio;
 
 interface
 
@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls;
 
 type
-  Tfrm_salvaSocio = class(TForm)
+  Tfrm_altSocio = class(TForm)
     lb_nomeSocio: TLabel;
     DBedit_nomeSocio: TDBEdit;
     DBedit_ruaSocio: TDBEdit;
@@ -32,6 +32,7 @@ type
     bt_salvarSocio: TButton;
     bt_cancelSocio: TButton;
     procedure bt_cancelSocioClick(Sender: TObject);
+    procedure bt_salvarSocioClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -39,7 +40,7 @@ type
   end;
 
 var
-  frm_salvaSocio: Tfrm_salvaSocio;
+  frm_altSocio: Tfrm_altSocio;
 
 implementation
 
@@ -47,8 +48,15 @@ implementation
 
 uses U_DmCadastros;
 
-procedure Tfrm_salvaSocio.bt_cancelSocioClick(Sender: TObject);
+procedure Tfrm_altSocio.bt_cancelSocioClick(Sender: TObject);
 begin
+      Close;
+end;
+
+procedure Tfrm_altSocio.bt_salvarSocioClick(Sender: TObject);
+begin
+      dmCadastros.qryCadSocio.Post;
+      ShowMessage('Cadastro alterado com Sucesso');
       Close;
 end;
 

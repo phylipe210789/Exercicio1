@@ -13,7 +13,8 @@ uses
   U_relAtividades in 'U_relAtividades.pas' {frm_relAtividades},
   U_relMatriculas in 'U_relMatriculas.pas' {frm_relMatriculas},
   U_DmCadastros in 'U_DmCadastros.pas' {dmCadastros: TDataModule},
-  U_salvaSocio in 'U_salvaSocio.pas' {frm_salvaSocio};
+  U_altSocio in 'U_altSocio.pas' {frm_altSocio},
+  U_novoSocio in 'U_novoSocio.pas' {frm_novoSocio};
 
 {$R *.res}
 
